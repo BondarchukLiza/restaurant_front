@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Footer() {
   return (
     <footer id="footer" className="footer dark-background">
@@ -5,9 +7,9 @@ function Footer() {
         <div className="row gy-4">
 
           <div className="col-lg-4 col-md-6 footer-about">
-            <a href="/" className="logo d-flex align-items-center">
+            <Link to="/" className="logo d-flex align-items-center">
               <span className="sitename">Restaurantly</span>
-            </a>
+            </Link>
 
             <div className="footer-contact pt-3">
               <p>вул. Хрещатик, 1</p>
@@ -40,11 +42,11 @@ function Footer() {
 
             <ul>
               <li>
-                <a href="/">Головна</a>
+                <Link to="/">Головна</Link>
               </li>
 
               <li>
-                <a href="/menu">Меню</a>
+                <Link to="/menu">Меню</Link>
               </li>
             </ul>
           </div>

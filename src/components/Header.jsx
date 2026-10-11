@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -32,9 +33,9 @@ function Header() {
       <div className="branding d-flex align-items-center">
         <div className="container position-relative d-flex align-items-center justify-content-between">
 
-          <a href="/" className="logo d-flex align-items-center me-auto me-xl-0">
+          <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
             <h1 className="sitename">Restaurantly</h1>
-          </a>
+          </Link>
 
           <nav
             id="navmenu"
@@ -42,15 +43,33 @@ function Header() {
           >
             <ul>
               <li>
-                <a href="/">Головна</a>
+                <NavLink
+                    to="/"
+                    end
+                    className={({ isActive }) => isActive ? 'active' : ''}
+                    onClick={() => setMenuOpen(false)}
+                >
+                  Головна
+                </NavLink>
               </li>
 
               <li>
-                <a href="/#about">Про нас</a>
+                <Link
+                  to="/#about"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Про нас
+                </Link>
               </li>
 
               <li>
-                <a href="/menu">Меню</a>
+                <NavLink
+                  to="/menu"
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Меню
+                </NavLink>
               </li>
             </ul>
 
