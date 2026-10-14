@@ -13,7 +13,7 @@ function App() {
     <>
       <Header />
 
-      <main className="main" style={{ paddingTop: '140px' }}>
+      <main className="main">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<MenuPage />} />
