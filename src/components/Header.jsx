@@ -1,24 +1,35 @@
+
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  function goToAbout() {
+    setMenuOpen(false)
+
+    if (location.pathname === '/') {
+      document.getElementById('about')?.scrollIntoView({
+        behavior: 'smooth'
+      })
+    }
+  }
 
   return (
     <header id="header" className="header fixed-top">
       <div className="topbar d-flex align-items-center">
         <div className="container d-flex justify-content-center justify-content-md-between">
-
           <div className="contact-info d-flex align-items-center">
-            <i className="bi bi-envelope d-flex align-items-center">
-              <a href="mailto:restknu@gmail.com">
-                restknu@gmail.com
-              </a>
-            </i>
+            <a href="mailto:restknu@gmail.com" className="topbar-contact">
+              <i className="bi bi-envelope"></i>
+              <span>restknu@gmail.com</span>
+            </a>
 
-            <i className="bi bi-phone d-flex align-items-center ms-4">
+            <a href="tel:+380977777777" className="topbar-contact ms-4">
+              <i className="bi bi-telephone"></i>
               <span>+38 097 777 77 77</span>
-            </i>
+            </a>
           </div>
 
           <div className="languages d-none d-md-flex align-items-center">
@@ -26,14 +37,15 @@ function Header() {
               <li>Uk</li>
             </ul>
           </div>
-
         </div>
       </div>
 
       <div className="branding d-flex align-items-center">
         <div className="container position-relative d-flex align-items-center justify-content-between">
-
-          <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
+          <Link
+            to="/"
+            className="logo d-flex align-items-center me-auto me-xl-0"
+          >
             <h1 className="sitename">Restaurantly</h1>
           </Link>
 
@@ -44,10 +56,10 @@ function Header() {
             <ul>
               <li>
                 <NavLink
-                    to="/"
-                    end
-                    className={({ isActive }) => isActive ? 'active' : ''}
-                    onClick={() => setMenuOpen(false)}
+                  to="/"
+                  end
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                  onClick={() => setMenuOpen(false)}
                 >
                   Головна
                 </NavLink>
@@ -56,7 +68,7 @@ function Header() {
               <li>
                 <Link
                   to="/#about"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={goToAbout}
                 >
                   Про нас
                 </Link>
@@ -72,6 +84,18 @@ function Header() {
                 </NavLink>
               </li>
             </ul>
+          </nav>
+
+          <div className="header-actions d-flex align-items-center gap-3 ms-3">
+            <button
+              type="button"
+              className="cart-icon-btn"
+              aria-label="Кошик"
+              disabled
+            >
+              <i className="bi bi-cart3"></i>
+              <span className="cart-badge">0</span>
+            </button>
 
             <button
               type="button"
@@ -82,20 +106,7 @@ function Header() {
             >
               <i className={`bi ${menuOpen ? 'bi-x' : 'bi-list'}`}></i>
             </button>
-          </nav>
-
-          <div className="d-none d-xl-flex align-items-center gap-3 ms-3">
-            <button
-              type="button"
-              className="cart-icon-btn"
-              aria-label="Кошик"
-              disabled
-            >
-              <i className="bi bi-cart3"></i>
-              <span className="cart-badge">0</span>
-            </button>
           </div>
-
         </div>
       </div>
     </header>
