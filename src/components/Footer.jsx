@@ -58,37 +58,28 @@ function Footer() {
             <h4>Контакти</h4>
 
             <div className="footer-contact-item">
-              <i className="bi bi-geo-alt"></i>
-              <div>
-                <span className="footer-contact-label">Адреса</span>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Khreshchatyk+1+Kyiv"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  вул. Хрещатик, 1, Київ, Україна
-                </a>
-              </div>
+              <span>Адреса</span>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Хрещатик+1+Київ"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                вул. Хрещатик, 1, Київ, Україна
+              </a>
             </div>
 
             <div className="footer-contact-item">
-              <i className="bi bi-telephone"></i>
-              <div>
-                <span className="footer-contact-label">Телефон</span>
-                <a href="tel:+380977777777">
-                  +38 097 777 77 77
-                </a>
-              </div>
+              <span>Телефон</span>
+              <a href="tel:+380977777777">
+                +38 097 777 77 77
+              </a>
             </div>
 
             <div className="footer-contact-item">
-              <i className="bi bi-envelope"></i>
-              <div>
-                <span className="footer-contact-label">Email</span>
-                <a href="mailto:info@restaurant.com">
-                  info@restaurant.com
-                </a>
-              </div>
+              <span>Email</span>
+              <a href="mailto:info@restaurant.com">
+                info@restaurant.com
+              </a>
             </div>
           </div>
 
