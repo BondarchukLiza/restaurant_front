@@ -91,8 +91,8 @@ export const ingredients = [
   },
   {
     "id": 10,
-    "name": "Маленький",
-    "image": "/assets/ingredients/small.png",
+    "name": "400 мл",
+    "image": "",
     "is_vegan": true,
     "is_vegetarian": true,
     "is_gluten_free": true,
@@ -101,8 +101,8 @@ export const ingredients = [
   },
   {
     "id": 11,
-    "name": "Середній",
-    "image": "/assets/ingredients/medium_size.png",
+    "name": "600 мл",
+    "image": "",
     "is_vegan": true,
     "is_vegetarian": true,
     "is_gluten_free": true,
@@ -111,12 +111,72 @@ export const ingredients = [
   },
   {
     "id": 12,
-    "name": "Великий",
-    "image": "/assets/ingredients/large.png",
+    "name": "800 мл",
+    "image": "",
     "is_vegan": true,
     "is_vegetarian": true,
     "is_gluten_free": true,
     "is_lactose_free": true,
     "is_nut_free": true
+  },
+  {
+    id: 13,
+    name: 'Авокадо',
+    image: '/assets/ingredients/avocado.png',
+    is_vegan: true,
+    is_vegetarian: true,
+    is_gluten_free: true,
+    is_lactose_free: true,
+    is_nut_free: true
+  },
+  {
+    id: 14,
+    name: 'Рукола',
+    image: '/assets/ingredients/arugula.png',
+    is_vegan: true,
+    is_vegetarian: true,
+    is_gluten_free: true,
+    is_lactose_free: true,
+    is_nut_free: true
+  },
+  {
+    id: 15,
+    name: 'Соус песто',
+    image: '/assets/ingredients/pesto.png',
+    is_vegan: false,
+    is_vegetarian: true,
+    is_gluten_free: true,
+    is_lactose_free: false,
+    is_nut_free: false
+  },
+  {
+    id: 16,
+    name: 'Телятина',
+    image: '/assets/ingredients/vedal.png',
+    is_vegan: false,
+    is_vegetarian: false,
+    is_gluten_free: true,
+    is_lactose_free: true,
+    is_nut_free: true
+  },
+  {
+    id: 17,
+    name: 'Печериці',
+    image: '/assets/ingredients/mushrooms.png',
+    is_vegan: true,
+    is_vegetarian: true,
+    is_gluten_free: true,
+    is_lactose_free: true,
+    is_nut_free: true
+  },
+  {
+    id: 18,
+    name: 'Сир пармезан',
+    image: '/assets/ingredients/parmesan.png',
+    is_vegan: false,
+    is_vegetarian: true,
+    is_gluten_free: true,
+    is_lactose_free: false,
+    is_nut_free: true
   }
 ];

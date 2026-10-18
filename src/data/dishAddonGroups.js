@@ -40,11 +40,6 @@ export const dishAddonGroups = [
     "category": 6
   },
   {
-    "id": 12,
-    "dish": 5,
-    "category": 1
-  },
-  {
     "id": 13,
     "dish": 4,
     "category": 2,

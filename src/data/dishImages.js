@@ -18,12 +18,6 @@ export const dishImages = [
     "is_main": true
   },
   {
-    "id": 4,
-    "dish": 3,
-    "image": "/assets/dishes/citrus_lemonade2.jpg",
-    "is_main": false
-  },
-  {
     "id": 5,
     "dish": 4,
     "image": "/assets/dishes/tuna_steak.jpg",

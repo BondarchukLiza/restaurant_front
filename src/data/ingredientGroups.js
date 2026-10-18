@@ -23,21 +23,21 @@ export const ingredientGroups = [
   {
     "id": 4,
     "dish": 5,
-    "name": "Склад салату",
-    "is_required": true,
-    "max_choices": 2
+    "name": "Додаткові інгредієнти",
+    "is_required": false,
+    "max_choices": 3
   },
   {
     "id": 5,
     "dish": 6,
-    "name": "Склад салату з телятиною",
-    "is_required": true,
-    "max_choices": 2
+    "name": "Додаткові інгредієнти",
+    "is_required": false,
+    "max_choices": 3
   },
   {
     "id": 6,
     "dish": 3,
-    "name": "Розмір порції",
+    "name": "Об'єм напою",
     "is_required": true,
     "max_choices": 1
   }
