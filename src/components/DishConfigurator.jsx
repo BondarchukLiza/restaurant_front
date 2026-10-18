@@ -1,8 +1,8 @@
-
 import { useEffect, useMemo, useState } from 'react'
 import { getDishIngredientGroups, getDishAddonGroups } from '../services/dishService'
 import IngredientGroup from './IngredientGroup'
 import AddonGroup from './AddonGroup'
+import { useCart } from '../context/CartContext'
 import '../styles/dish_configurator.css'
 
 function createInitialSelections(groups) {
@@ -26,6 +26,7 @@ function createInitialSelections(groups) {
 }
 
 function DishConfigurator({ dish, onPriceChange, onVolumeChange }) {
+  const { addToCart } = useCart()
   const ingredientGroups = useMemo(
     () => getDishIngredientGroups(dish.id),
     [dish.id]
@@ -42,8 +43,20 @@ function DishConfigurator({ dish, onPriceChange, onVolumeChange }) {
 
   const [selectedAddons, setSelectedAddons] = useState({})
   const [quantity, setQuantity] = useState(1)
+  const [addedToCart, setAddedToCart] = useState(false)
+
+  useEffect(() => {
+    if (!addedToCart) return
+
+    const timeout = setTimeout(() => {
+      setAddedToCart(false)
+    }, 3000)
+
+    return () => clearTimeout(timeout)
+  }, [addedToCart])
 
   function handleIngredientChange(groupId, optionIds) {
+    setAddedToCart(false)
     setSelectedIngredients(current => ({
       ...current,
       [groupId]: optionIds
@@ -51,6 +64,7 @@ function DishConfigurator({ dish, onPriceChange, onVolumeChange }) {
   }
 
   function handleAddonChange(groupId, addonIds) {
+    setAddedToCart(false)
     setSelectedAddons(current => ({
       ...current,
       [groupId]: addonIds
@@ -144,18 +158,32 @@ function DishConfigurator({ dish, onPriceChange, onVolumeChange }) {
     )
 
   function handleAddToCart() {
-    if (!isValid) {
-      return
+    if (!isValid) return
+
+    const ingredientIds = Object.values(selectedIngredients)
+      .flat()
+      .sort((a, b) => a - b)
+
+    const addonIds = Object.values(selectedAddons)
+      .flat()
+      .sort((a, b) => a - b)
+
+    const cartItem = {
+      id: `${dish.id}-${ingredientIds.join('_')}-${addonIds.join('_')}`,
+      dishId: dish.id,
+      name: dish.name,
+      image: dish.image,
+      unitPrice,
+      quantity,
+      ingredients: selectedIngredientDetails,
+      addons: selectedAddonDetails
     }
 
-    console.log('Налаштована страва:', {
-      dishId: dish.id,
-      selectedIngredients,
-      selectedAddons,
-      quantity,
-      unitPrice,
-      totalPrice
-    })
+    addToCart(cartItem)
+    setAddedToCart(true)
+    setSelectedIngredients(createInitialSelections(ingredientGroups))
+    setSelectedAddons({})
+    setQuantity(1)
   }
 
   return (
@@ -285,6 +313,13 @@ function DishConfigurator({ dish, onPriceChange, onVolumeChange }) {
           <i className="bi bi-cart-plus"></i>
           Додати до кошика
         </button>
+
+        {addedToCart && (
+          <div className="dish-configurator__success" role="status">
+            <i className="bi bi-check-circle-fill"></i>
+            <span>Страву додано до кошика!</span>
+          </div>
+        )}
 
         {!isValid && (
           <p className="dish-configurator__error">

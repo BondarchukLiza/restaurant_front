@@ -1,10 +1,13 @@
-
 import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
+import CartDrawer from './CartDrawer'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
   const location = useLocation()
+  const { cartCount } = useCart()
 
   function goToAbout() {
     setMenuOpen(false)
@@ -17,6 +20,7 @@ function Header() {
   }
 
   return (
+    <>
     <header id="header" className="header fixed-top">
       <div className="topbar d-flex align-items-center">
         <div className="container d-flex justify-content-center justify-content-md-between">
@@ -90,11 +94,18 @@ function Header() {
             <button
               type="button"
               className="cart-icon-btn"
-              aria-label="Кошик"
-              disabled
+              aria-label={`Кошик, кількість товарів: ${cartCount}`}
+              aria-expanded={cartOpen}
+              onClick={() => {
+                setMenuOpen(false)
+                setCartOpen(true)
+              }}
             >
               <i className="bi bi-cart3"></i>
-              <span className="cart-badge">0</span>
+
+              {cartCount > 0 && (
+                <span className="cart-badge">{cartCount}</span>
+              )}
             </button>
 
             <button
@@ -110,6 +121,11 @@ function Header() {
         </div>
       </div>
     </header>
+    <CartDrawer
+      isOpen={cartOpen}
+      onClose={() => setCartOpen(false)}
+    />
+  </>
   )
 }
 
