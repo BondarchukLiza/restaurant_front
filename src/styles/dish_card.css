@@ -1,0 +1,135 @@
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #34302a;
+  border-radius: 14px;
+  background: #1b1915;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+  border-color: #cda45e;
+}
+
+.dish-card__image-link {
+  display: block;
+  overflow: hidden;
+}
+
+.dish-card__image {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.dish-card:hover .dish-card__image {
+  transform: scale(1.05);
+}
+
+.dish-card__placeholder {
+  display: flex;
+  height: 210px;
+  align-items: center;
+  justify-content: center;
+  background: #28241d;
+  color: #cda45e;
+  font-size: 42px;
+}
+
+.dish-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.dish-card__category {
+  display: block;
+  margin-bottom: 10px;
+  color: #cda45e;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dish-card__title {
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.dish-card__title a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.dish-card__title a:hover {
+  color: #cda45e;
+}
+
+.dish-card__description {
+  margin-bottom: 15px;
+  color: #aaaaaa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.dish-card__dietary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.dish-card__dietary span {
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: rgba(205, 164, 94, 0.12);
+  color: #d9bb87;
+  font-size: 11px;
+}
+
+.dish-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.dish-card__price {
+  color: #cda45e;
+  font-size: 19px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dish-card__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid #cda45e;
+  border-radius: 25px;
+  color: #cda45e;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dish-card__button:hover {
+  background: #cda45e;
+  color: #171511;
+}
+
+@media (max-width: 575px) {
+  .dish-card__bottom {
+    flex-wrap: wrap;
+  }
+}

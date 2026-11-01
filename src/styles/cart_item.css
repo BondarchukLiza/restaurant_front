@@ -1,0 +1,120 @@
+.cart-item {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(205, 164, 94, 0.2);
+}
+
+.cart-item__info h3 {
+  margin: 0 0 10px;
+  color: var(--heading-color);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cart-item__options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.cart-item__options p {
+  margin: 0;
+  color: var(--default-color);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.cart-item__unit-price {
+  margin: 10px 0;
+  color: var(--accent-color);
+  font-size: 0.85rem;
+}
+
+.cart-item__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart-item__quantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(205, 164, 94, 0.35);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.cart-item__quantity button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cart-item__quantity button:hover:not(:disabled) {
+  background: rgba(205, 164, 94, 0.15);
+}
+
+.cart-item__quantity button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cart-item__quantity span {
+  min-width: 26px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.cart-item__total {
+  margin-left: auto;
+  color: var(--accent-color);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.cart-item__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: var(--default-color);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cart-item__remove:hover {
+  color: #e45b5b;
+}
+
+
+.cart-item__heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cart-item__image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.cart-item__heading h3 {
+  margin: 0;
+}
