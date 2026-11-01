@@ -30,6 +30,19 @@ function CheckoutPage() {
 
     if (cartItems.length === 0) return
 
+    if (!formData.customerName.trim()) {
+      alert("Введіть ваше ім'я")
+      return
+    }
+
+    if (
+      formData.deliveryMethod === 'delivery' &&
+      !formData.deliveryAddress.trim()
+    ) {
+      alert("Введіть адресу доставки")
+      return
+    }
+
     const order = {
       customerName: formData.customerName.trim(),
       customerPhone: formData.customerPhone,
